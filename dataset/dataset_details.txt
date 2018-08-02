@@ -1,0 +1,50 @@
+1. Title: Black Jack Dataset
+
+2. Source:
+	August 2, 2018
+	This dataset was built upon a random number generator. 
+	This is the python code used to place bets, and decisions of hit/stay
+
+	def rng_agent_bet(player1):
+		# This is not a real AI.
+		# This is a random number generator that will be used to make a data set.
+		# Starting player1.cash = 50000
+
+		# Place Bet
+		player1.bet = random.randint(0, int((player1.cash-1)/10000) )
+
+		print("RNG BET: " + str(player1.bet) )
+		return player1.bet
+
+	def rng_agent_action(player1):
+		# This is not a real AI.
+		# This is a random number generator that will be used to make a data set.
+
+		# Chose action
+		# 0 = hit, 1 = stay
+		if random.randint(0, 1):
+			rng_action = "hit"
+		else:
+			rng_action = "stay"
+
+		print("RNG ACTION : " + str(rng_action) )
+		return rng_action
+
+3. Number of Instances: 150
+
+4. Number of Attributes: 5
+
+5. Attribute Ledgend:
+	[Cash Stack After Hand, Bet Placed for Hand, Player's Card Sum, Dealer's Card Sum, win/lose/tie]
+
+	0: Cash Stack After Hand - The amount of cash the player owns after the cards are shown.
+	1: Bet Placed for Hand - This is the amount of cash bet for the hand at play.
+	2: Player's Card Sum - This is the sum of all the cards in the Player's hand.
+	3: Dealer's Card Sum - This is the sum of all the cards in the Dealer's hand.
+	3: win/lose/tie - Win = 1, Lose = 2, Tie = 3
+
+	Example
+	[255,  1, 32, 21, 2]	The current cash stack after the hand summed to 255.
+	[236, 19, 26, 20, 2]	Since the player lost the game, subtract 19 from the cash stack (255-19) = 236
+	[239,  3, 17, 18, 1]	Since the player won the game, add 3 to the cash stack (236 + 3) = 239
+
