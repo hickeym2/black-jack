@@ -2,7 +2,7 @@
 # Wentworth Institute of Technology.
 
 # Black Jack Game For AI
-# This program will allow the user to play Black Jack.
+# This script will allow the user to play Black Jack.
 
 # Imports
 import numpy as np 

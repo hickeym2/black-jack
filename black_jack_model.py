@@ -1,26 +1,5 @@
-# Neural Network Model for Black Jack
 # Michael Hickey
-#
-# NOTES TO SELF
-#
-# A state consists of:
-#	Player's Current Cash Stack
-#	Player's Current Bet
-#	Player's Individual Card Values
-#	Player's Current Sum of Cards
-#	
-#	Dealer's Individual Card Values
-#	Dealer's Current Sum (Later show only one card.)
-#
-#
-# An action sequence consists of:
-#	How much to bet at the start of a hand; or ask the bank for cash.
-#	Then after looking at cards; Hit, or Stay
-#
-# Score is based off of the total money the Player accuulates.
-
-
-
+# Neural Network Model for Black Jack
 
 
 from keras.models import Sequential
