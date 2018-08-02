@@ -10,6 +10,8 @@ import random# The RNG used to pick cards.
 from datetime import datetime # Used to seed the RNG
 import os
 
+os.chdir("dataset")
+
 # A card has a value and a name.
 class Card:
 	# Cards come from a deck, therefore a decks index, corresponds to the card.
@@ -396,7 +398,7 @@ def build_dataset(dataset, state):
 def save_dateset(dataset):
 	# Save the dataset to a *.csv
 	np_dataset = np.asarray(dataset)
-	np.savetxt("black_jack_dataset.csv", np_dataset, delimiter = ",")
+	np.savetxt("black_jack_dataset_temp.csv", np_dataset, delimiter = ",")
 	return 0
 
 def rng_agent_bet(player1):
@@ -461,6 +463,8 @@ if __name__ == "__main__":
 
 		a_human_is_playing = is_player_human()
 
+		do_you_want_to_save_the_dataset = True
+
 		num_games = 1600
 		for k in range(num_games):
 			# Main Menu
@@ -508,7 +512,8 @@ if __name__ == "__main__":
 					# Put the state into a dataset.
 					dataset = build_dataset(dataset, state)
 					# Save the dataset to a *.csv to the local project's directory
-					save_dateset(dataset)
+					if do_you_want_to_save_the_dataset:
+						save_dateset(dataset)
 					# Since the game is over, collect cards and deal new cards.
 					break
 

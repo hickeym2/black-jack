@@ -5,7 +5,9 @@
 from keras.models import Sequential
 from keras.layers import Dense
 import numpy as np 
+import os
 
+os.chdir("dataset")
 
 if __name__ == "__main__":
 	# Fix the random seed so you can reproduce the sequence.
