@@ -14,7 +14,7 @@ if __name__ == "__main__":
 	np.random.seed(1)
 
 	# Load a dataset.
-	dataset = np.loadtxt("black_jack_dataset.csv", delimiter = ",")
+	dataset = np.loadtxt("black_jack_dataset_temp.csv", delimiter = ",")
 
 	# We want all the rows, and only 4 columns.
 	input_data = dataset[ : , 2:4]
@@ -39,8 +39,8 @@ if __name__ == "__main__":
 
 	# Fit (aka. train) the model on the dataset
 	# Put the data in, get an answer from the model, run it for size_of_sataset iterations, on batch sizes of 10.
-	size_of_dataset = 960
-	model.fit(input_data, answer, epochs = size_of_dataset, batch_size = 32)
+	size_of_dataset = 22
+	model.fit(input_data, answer, epochs = size_of_dataset, batch_size = 22)
 
 	# Score the model.
 	scores = model.evaluate(input_data, answer)
