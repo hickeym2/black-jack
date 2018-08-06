@@ -14,7 +14,7 @@ if __name__ == "__main__":
 	np.random.seed(1)
 
 	# Load a dataset.
-	dataset = np.loadtxt("black_jack_dataset_temp.csv", delimiter = ",")
+	dataset = np.loadtxt("black_jack_dataset.csv", delimiter = ",")
 
 	# We want all the rows, and only 4 columns.
 	input_data = dataset[ : , 2:4]
@@ -32,15 +32,15 @@ if __name__ == "__main__":
 	# Fourth Layer
 	model.add(Dense(4, activation = "relu") )	
 	# This is the output layer, notice there is one neuron for the output.
-	model.add(Dense(1, activation = "sigmoid") )
+	model.add(Dense(1, activation = "linear") )
 
 	# Compile the model.
-	model.compile(loss = "binary_crossentropy", optimizer = "adam", metrics = ["accuracy"])
+	model.compile(loss = "mse", optimizer = "adam", metrics = ["accuracy"])
 
 	# Fit (aka. train) the model on the dataset
 	# Put the data in, get an answer from the model, run it for size_of_sataset iterations, on batch sizes of 10.
-	size_of_dataset = 22
-	model.fit(input_data, answer, epochs = size_of_dataset, batch_size = 22)
+	size_of_dataset = 1600
+	model.fit(input_data, answer, epochs = size_of_dataset, batch_size = 32)
 
 	# Score the model.
 	scores = model.evaluate(input_data, answer)
